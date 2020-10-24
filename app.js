@@ -30,14 +30,18 @@ const managerQues = [
         type: "input",
         message: "What is your manager's office number?",
         name: "officeNumber"
-    },
+    }
+];
+
+const memberQues = [
     {
         type: "list",
         message: "What type of team member would you like to add?",
         name: "teamMember",
-        choices: ["Engineer", "Intern", "I don't want to add any more team members"]
+        choices: ["Engineer", "Intern", "I don't want to add any more team members"],
     }
 ];
+
 
 const internQues = [
     {
@@ -85,6 +89,8 @@ const engQues = [
     }
 ]
 
+const employees = [];
+
 // function writeToFile(fileName, data) {
 //     fs.writeFile(fileName, data, (err) => {
 //         if(err) {
@@ -95,33 +101,48 @@ const engQues = [
 //     })
 // }
 
-inquirer.prompt(managerQues).then((res) => {
-    if (res.teamMember === "Engineer") {
-        inquirer.prompt(engQues).then((engRes) => {
-            let engineer = new Engineer(engRes.name, engRes.id, engRes.email, engRes.github);
-            console.log(engineer);
-        }).catch(error => {
-            console.log("Error in the Engineer prompt.");
-            console.log(error);
-        });
-    }
+function teamMember() {
+    inquirer.prompt(memberQues).then((res) => {
+        if (res.teamMember === "Engineer") {
+            let engineer;
+            inquirer.prompt(engQues).then((engRes) => {
+                engineer = new Engineer(engRes.name, engRes.id, engRes.email, engRes.github);
+                employees.push(engineer);
+                teamMember();
+            }).catch((error) => {
+                console.log("Error in Engineer questions prompt.");
+                console.log(error);
+            })
+        }
 
-    else if (res.teamMember === "Intern") {
-        inquirer.prompt(internQues).then((internRes) => {
-            let intern = new Intern(internRes.name, internRes.id, internRes.email, internRes.school);
-        }).catch(error => {
-            console.log("Error in the Intern prompt.");
-            console.log(error);
-        });
-    }
+        else if (res.teamMember === "Intern") {
+            let intern;
+            inquirer.prompt(internQues).then((internRes) => {
+                intern = new Intern(internRes.name, internRes.id, internRes.email, internRes.school);
+                employees.push(intern);
+                teamMember();
+            }).catch(error => {
+                console.log("Error in the Intern questions prompt.");
+                console.log(error);
+            })
+        }
 
-    else {
+        else {
+            console.log("Results Recorded!");
+        }
+    })
+}
 
-    }
+    inquirer.prompt(managerQues).then((res) => {
 
-    let manager = new Manager(res.name, res.id, res.email, res.officeNumber);
-}).catch(error => {
-    console.log("Error in the Manager prompt.");
-    console.log(error);
-});
+        let manager = new Manager(res.name, res.id, res.email, res.officeNumber);
+        employees.push(manager);
 
+        teamMember();
+    
+        // render(employees);
+    
+    }).catch(error => {
+        console.log("Error in the Manager prompt.");
+        console.log(error);
+    });   
