@@ -19,12 +19,29 @@ const managerQues = [
     {
         type: "input", 
         message: "What is your manager's id?",
-        name: "id"
+        name: "id",
+        validate: (str) => {
+            if (/^\d+$/.test(str)) {
+                return true;
+            }
+
+            else {
+                return "Please use only numbers for the ID.";
+            }
+        }
     },
     {
         type: "input",
         message: "What is your manager's email?",
-        name: "email"
+        name: "email",
+        validate: (str) => {
+            if (/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(str)) {
+                return true;
+            }
+            else {
+                return "Please enter a valid email."
+            }
+        }
     },
     {
         type: "input",
@@ -52,12 +69,29 @@ const internQues = [
     {
         type: "input",
         message: "What is your intern's id?",
-        name: "id"
+        name: "id",
+        validate: (str) => {
+            if (/^\d+$/.test(str)) {
+                return true;
+            }
+
+            else {
+                return "Please use only numbers for the ID.";
+            }
+        }
     },
     {
         type: "input",
         message: "What is your intern's email?",
-        name: "email"
+        name: "email",
+        validate: (str) => {
+            if (/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(str)) {
+                return true;
+            }
+            else {
+                return "Please enter a valid email."
+            }
+        }
     },
     {
         type: "input",
@@ -75,12 +109,29 @@ const engQues = [
     {
         type: "input",
         message: "What is your engineer's id?",
-        name: "id"
+        name: "id",
+        validate: (str) => {
+            if (/^\d+$/.test(str)) {
+                return true;
+            }
+
+            else {
+                return "Please use only numbers for the ID.";
+            }
+        }
     },
     {
         type: "input",
         message: "What is your engineer's email?",
-        name: "email"
+        name: "email",
+        validate: (str) => {
+            if (/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(str)) {
+                return true;
+            }
+            else {
+                return "Please enter a valid email."
+            }
+        }
     },
     {
         type: "input",
