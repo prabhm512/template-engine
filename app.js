@@ -142,15 +142,15 @@ const engQues = [
 
 const employees = [];
 
-// function writeToFile(fileName, data) {
-//     fs.writeFile(fileName, data, (err) => {
-//         if(err) {
-//             console.log(err);
-//         } else {
-//             console.log("Success");
-//         }
-//     })
-// }
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) => {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log("Open ./output/team.html to view your employee summary!");
+        }
+    })
+}
 
 function teamMember() {
     inquirer.prompt(memberQues).then((res) => {
@@ -180,6 +180,9 @@ function teamMember() {
 
         else {
             console.log("Results Recorded!");
+
+            // Write generated HTML to file
+            writeToFile(outputPath, render(employees));
         }
     })
 }
@@ -190,8 +193,6 @@ function teamMember() {
         employees.push(manager);
 
         teamMember();
-    
-        // render(employees);
     
     }).catch(error => {
         console.log("Error in the Manager prompt.");
