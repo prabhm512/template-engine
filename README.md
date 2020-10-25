@@ -28,6 +28,8 @@ This is a CLI app that generates a nicely formatted team summary based on user r
 
 This app allows managers to have quick access to emails and github profiles of their engineering team.
 
+<a href="https://drive.google.com/file/d/1AF7xAgt3ndaDDMwgJG_w2mRsxsvIZ_UQ/view?usp=sharing">Video Demonstration (click to open)</a>
+
 ## Licenses
 
 The underlying source code used to format and display this content is licensed under the [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
