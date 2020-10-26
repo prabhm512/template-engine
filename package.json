@@ -9,7 +9,8 @@
   },
   "scripts": {
     "start": "node ./app.js",
-    "test": "jest --verbose test/*"
+    "test": "jest --verbose test/*",
+    "postinstall": "node_modules"
   },
   "repository": {
     "type": "git",
