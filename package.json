@@ -7,6 +7,9 @@
     "lib": "lib",
     "test": "test"
   },
+  "engines": {
+    "node": "14.11.0"
+  },
   "scripts": {
     "start": "node ./app.js",
     "test": "jest --verbose test/*",
