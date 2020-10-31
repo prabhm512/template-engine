@@ -8,12 +8,12 @@ This is a CLI app that generates a nicely formatted team summary based on user r
 
 ## Table of Contents
 
-[Installation](#-installation)  
-[Usage](#-usage)  
-[License](#-licenses)  
-[Contributing](#-contributing)  
-[Tests](#-tests)  
-[Questions](#-questions)
+[Installation](#installation)  
+[Usage](#usage)  
+[License](#licenses)  
+[Contributing](#contributing)  
+[Tests](#tests)  
+[Questions](#questions)
 
 ## Installation
 
